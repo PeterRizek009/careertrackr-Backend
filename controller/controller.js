@@ -25,11 +25,11 @@ const getSingleJob = async (req, res) => {
 
 //create a new job
 const createNewJob = async (req, res) => {
-    const { positionName, companyName, location, platform, gotAnReply , googleName} = req.body;
+    const { positionName, companyName, location, platform, gotAnReply } = req.body;
 
     try {
         const job = await Job.create
-            ({ positionName, companyName, location, Date, platform, gotAnReply , googleName});
+            ({ positionName, companyName, location, Date, platform, gotAnReply });
 
         res.status(201).send(job)
 

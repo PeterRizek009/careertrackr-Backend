@@ -24,10 +24,6 @@ const jobsSchema = new Schema({
     gotAnReply: {
         type: String,
         required: true,
-    },
-    googleName: {
-        type: String,
-        required: true,
     }
 
 
