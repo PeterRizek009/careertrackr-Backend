@@ -11,9 +11,12 @@ const app = express();
 
 // CORS (required for POST from browser)
 app.use(cors({
-  origin: "*",
-  methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
+  origin: [
+    "http://localhost:3000",
+    "https://peterrizek009.github.io"
+  ],
+  methods: "GET,POST,PATCH,DELETE,OPTIONS",
+  allowedHeaders: "Content-Type,Authorization"
 }));
 
 // Handle OPTIONS (important!)
