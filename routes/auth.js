@@ -4,6 +4,7 @@ const { OAuth2Client } = require('google-auth-library');
 
 const router = express.Router();
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+console.log(client);
 
 router.post('/google', async (req, res) => {
   try {

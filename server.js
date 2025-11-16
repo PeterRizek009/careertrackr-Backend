@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 app.use(cors());
 
 app.use('/api', jobsRoutes)
-app.use('/api/auth', authRoutes);
+app.use('/auth', authRoutes);
 
 
 
