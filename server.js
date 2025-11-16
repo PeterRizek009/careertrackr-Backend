@@ -1,11 +1,17 @@
 require('dotenv').config()
 
 
+
+
 const http = require('http')
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require("path")
+const cors = require('cors');
+
+
 const jobsRoutes = require('./routes/Jobs')
+const authRoutes = require('./routes/auth');
 
 //express app
 const app = express();
@@ -19,20 +25,13 @@ app.use((req, res, next) => {
     next()
 })
 
+
+app.use(cors());
+
 app.use('/api', jobsRoutes)
+app.use('/api/auth', authRoutes);
 
 
-
-// app.all('*', (req, res) => {
-//     res.status(404)
-//     if (req.accepts("html")) {
-//         res.sendFile(path.join(__dirname, "views", "404.html"))
-//     } else if (req.accepts("json")) {
-//         res.json({ message: "404 not found" })
-//     } else {
-//         res.type('txt').send("404 not found")
-//     }
-// })
 
 
 mongoose.connect(process.env.MONG_URI)
